@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitea-act-runner
+  labels:
+    app: gitea-act-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitea-act-runner
+  template:
+    metadata:
+      labels:
+        app: gitea-act-runner
+    spec:
+      containers:
+        - name: runner
+          image: gitea/act_runner:latest
+          env:
+            - name: GITEA_INSTANCE_URL
+              value: "http://gitea-http.default.svc.cluster.local:3000" # For externals IPs, you should add your external URL. 
+            - name: GITEA_RUNNER_REGISTRATION_TOKEN
+              value: "<YOUR_REGISTRATION_TOKEN>" # You have to get it in your gitea. 
+            - name: GITEA_RUNNER_NAME. # This name is showed in Runner section, choose a descriptive name.
+              value: "k8s-runner"
+            - name: GITEA_RUNNER_LABELS # This labels are important to your workflow pipelines, chose an ubiquous labels.
+              value: "docker,kubernetes"
+          volumeMounts:
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock

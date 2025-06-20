@@ -1,0 +1,26 @@
+apiVersion: v2
+name: gitea
+type: application
+version: 12.1.0
+appVersion: 1.24.0
+dependencies:
+  # https://github.com/bitnami/charts/blob/main/bitnami/postgresql
+  - name: postgresql
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: 16.7.11
+    condition: postgresql.enabled
+  # https://github.com/bitnami/charts/blob/main/bitnami/postgresql-ha/Chart.yaml
+  - name: postgresql-ha
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: 16.0.14
+    condition: postgresql-ha.enabled
+  # https://github.com/bitnami/charts/blob/main/bitnami/valkey-cluster/Chart.yaml
+  - name: valkey-cluster
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: 3.0.14
+    condition: valkey-cluster.enabled
+  # https://github.com/bitnami/charts/blob/main/bitnami/valkey/Chart.yaml
+  - name: valkey
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: 3.0.13
+    condition: valkey.enabled
