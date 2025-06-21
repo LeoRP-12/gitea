@@ -114,7 +114,7 @@ service:
   http:
     type: ClusterIP
     port: 3000
-    clusterIP: None.   #This is for Headless service, maybe you can face issues with this.
+    clusterIP:
     loadBalancerIP:
     nodePort:
     externalTrafficPolicy:
