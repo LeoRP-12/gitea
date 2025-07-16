@@ -1,0 +1,100 @@
+:root {
+  --is-dark-theme: false;
+  --color-primary: #d32f2f;
+  --color-primary-contrast: #ffffff;
+  --color-primary-dark-1: #c62828;
+  --color-primary-dark-2: #b71c1c;
+  --color-primary-dark-3: #a01515;
+  --color-primary-dark-4: #8b0000;
+  --color-primary-dark-5: #5c0000;
+  --color-primary-dark-6: #3a0000;
+  --color-primary-dark-7: #200000;
+  --color-primary-light-1: #e53935;
+  --color-primary-light-2: #ef5350;
+  --color-primary-light-3: #e57373;
+  --color-primary-light-4: #ffcdd2;
+  --color-primary-light-5: #ffebee;
+  --color-primary-light-6: #fff5f5;
+  --color-primary-light-7: #fffafa;
+  --color-primary-alpha-10: #d32f2f19;
+  --color-primary-alpha-20: #d32f2f33;
+  --color-primary-alpha-30: #d32f2f4b;
+  --color-primary-alpha-40: #d32f2f66;
+  --color-primary-alpha-50: #d32f2f80;
+  --color-primary-alpha-60: #d32f2f99;
+  --color-primary-alpha-70: #d32f2fb3;
+  --color-primary-alpha-80: #d32f2fcc;
+  --color-primary-alpha-90: #d32f2fe1;
+  --color-primary-hover: var(--color-primary-dark-1);
+  --color-primary-active: var(--color-primary-dark-2);
+
+  /* substitui tons secundários rosados por variantes avermelhadas */
+  --color-secondary: #f9d0d0;
+  --color-secondary-dark-1: #e8b3b3;
+  --color-secondary-dark-2: #d88a8a;
+  --color-secondary-dark-3: #c76b6b;
+  --color-secondary-dark-4: #b54d4d;
+  --color-secondary-dark-5: #a33a3a;
+  --color-secondary-dark-6: #922727;
+  --color-secondary-dark-7: #811414;
+  --color-secondary-dark-8: #700101;
+  --color-secondary-dark-9: #5f0000;
+  --color-secondary-dark-10: #4e0000;
+  --color-secondary-dark-11: #3d0000;
+  --color-secondary-dark-12: #2c0000;
+  --color-secondary-dark-13: #1b0000;
+  --color-secondary-light-1: #fbe3e3;
+  --color-secondary-light-2: #fdeaea;
+  --color-secondary-light-3: #fef2f2;
+  --color-secondary-light-4: #fff8f8;
+
+  --color-secondary-alpha-10: #f9d0d019;
+  --color-secondary-alpha-20: #f9d0d033;
+  --color-secondary-alpha-30: #f9d0d04b;
+  --color-secondary-alpha-40: #f9d0d066;
+  --color-secondary-alpha-50: #f9d0d080;
+  --color-secondary-alpha-60: #f9d0d099;
+  --color-secondary-alpha-70: #f9d0d0b3;
+  --color-secondary-alpha-80: #f9d0d0cc;
+  --color-secondary-alpha-90: #f9d0d0e1;
+
+  --color-secondary-button: var(--color-secondary-dark-4);
+  --color-secondary-hover: var(--color-secondary-dark-5);
+  --color-secondary-active: var(--color-secondary-dark-6);
+
+  /* demais elementos visuais */
+  --color-accent: var(--color-primary-light-2);
+  --color-small-accent: var(--color-primary-light-5);
+  --color-label-bg: #ffcdd24b;
+  --color-label-hover-bg: #ffcdd2a0;
+  --color-label-active-bg: #ffcdd2ff;
+  --color-highlight-fg: #ff6f61;
+  --color-highlight-bg: #fff5f5;
+
+  --color-body: #ffffff;
+  --color-nav-bg: #fff5f5;
+  --color-box-header: #fff0f0;
+  --color-box-body-highlight: #ffcdd066;
+  --color-nav-hover-bg: var(--color-secondary-light-1);
+  --color-menu: #fff8f8;
+  --color-card: #fff8f8;
+  --color-code-bg: #fffafa;
+
+  /* cores neutras mantidas */
+  --color-console-fg: #f7f8f9;
+  --color-console-fg-subtle: #bdc4cc;
+  --color-console-bg: #171b1e;
+}
+
+/* Estiliza a home page com o tema vermelho */
+.home {
+  background-color: var(--color-primary-contrast) !important;
+}
+
+.home a {
+  color: var(--color-primary) !important;
+}
+
+.home .svg {
+  color: var(--color-primary) !important;
+}

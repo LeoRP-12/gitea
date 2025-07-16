@@ -1,5 +1,5 @@
 
-# 📦 Deploying Gitea and Runners on Kubernetes
+# 📦 Deploying Gitea and Runners on Kubernetes (Docker Alternative Available)
 
 This repository contains configuration files to install and configure a [Gitea](https://gitea.io) instance and its runners on Kubernetes using Helm.
 
@@ -178,7 +178,81 @@ helm uninstall gitea -n gitea
 ## Running with Docker
 
 
-You can install your Gitea instance via Docker.
+First of all, you need to ensure you have Docker installed, you can use any Docker Desktop engine, but if you inteend to deploy your application in a VPS you can install the Docker engine via command line:
+
+
+```bash
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
+
+### Common Issues
+
+```bash
+The following packages have unmet dependencies:
+ containerd.io : Conflicts: containerd
+E: Error, pkgProblemResolver::Resolve generated breaks, this may be caused by held packages.
+```
+
+If you are facing this issue installing docker, it occours due to a clonflict beetwen containerd.io and containerd, to solve this, try:
+
+```bash
+sudo apt remove docker docker-engine docker.io containerd runc
+```
+
+Install the certificates
+
+```bash
+sudo apt update
+sudo apt install -y ca-certificates curl gnupg
+```
+
+Add the GPG keys 
+
+```bash
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+  sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+
+Add the Docker repository:
+
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+Install the Docker engine
+
+```bash
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+```
+
+You can check it:
+
+```bash
+docker --version
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+
+After that you have to install Docker Compose
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version  # should show the docker compose version
+```
+
+Now, you can install your Gitea instance via Docker.
 
 To launch your instance: 
 
@@ -209,6 +283,27 @@ docker run \
     -e GITEA_RUNNER_LABELS=linux \
     --name gitea-runner \
     -d docker.io/gitea/act_runner:latest
+```
+
+To check if everthing is ok you can see the logs
+
+```bash
+docker logs gitea-runner
+```
+
+
+If you need specify the network use:
+
+```bash
+docker run \
+  --network gitea-net \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -e GITEA_INSTANCE_URL=http://gitea:3000 \
+  -e GITEA_RUNNER_REGISTRATION_TOKEN=8Ng36J3KfEAeXKar6pa4wjSTXCuH3dqxzdco0Gp0 \
+  -e GITEA_RUNNER_NAME=gitea-runner \
+  -e GITEA_RUNNER_LABELS=linux \
+  --name gitea-runner \
+  -d gitea/act_runner:latest
 ```
 
 
@@ -245,7 +340,6 @@ docker stop gitea-runner
 docker rm gitea-runner
 docker-compose down
 ```
-
 
 
 ## 📚 References

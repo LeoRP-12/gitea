@@ -1,0 +1,128 @@
+@import "../chroma/light.css";
+@import "../codemirror/light.css";
+
+gitea-theme-meta-info {
+  --theme-display-name: "Pink Light";
+}
+
+:root {
+  --is-dark-theme: false;
+  --color-primary: #e91e63;
+  --color-primary-contrast: #ffffff;
+  --color-primary-dark-1: #d81b60;
+  --color-primary-dark-2: #c2185b;
+  --color-primary-dark-3: #ad1457;
+  --color-primary-dark-4: #880e4f;
+  --color-primary-dark-5: #56002f;
+  --color-primary-dark-6: #3b001f;
+  --color-primary-dark-7: #200011;
+  --color-primary-light-1: #ec407a;
+  --color-primary-light-2: #f06292;
+  --color-primary-light-3: #f48fb1;
+  --color-primary-light-4: #f8bbd0;
+  --color-primary-light-5: #fce4ec;
+  --color-primary-light-6: #fff0f5;
+  --color-primary-light-7: #fff7fb;
+  --color-primary-alpha-10: #e91e6319;
+  --color-primary-alpha-20: #e91e6333;
+  --color-primary-alpha-30: #e91e634b;
+  --color-primary-alpha-40: #e91e6366;
+  --color-primary-alpha-50: #e91e6380;
+  --color-primary-alpha-60: #e91e6399;
+  --color-primary-alpha-70: #e91e63b3;
+  --color-primary-alpha-80: #e91e63cc;
+  --color-primary-alpha-90: #e91e63e1;
+  --color-primary-hover: var(--color-primary-dark-1);
+  --color-primary-active: var(--color-primary-dark-2);
+  --color-secondary: #f3dbe3;
+  --color-secondary-dark-1: #e5c7d1;
+  --color-secondary-dark-2: #d4aabb;
+  --color-secondary-dark-3: #b38599;
+  --color-secondary-dark-4: #a37089;
+  --color-secondary-dark-5: #935c75;
+  --color-secondary-dark-6: #834861;
+  --color-secondary-dark-7: #73344d;
+  --color-secondary-dark-8: #632039;
+  --color-secondary-dark-9: #531c2f;
+  --color-secondary-dark-10: #421725;
+  --color-secondary-dark-11: #31121b;
+  --color-secondary-dark-12: #200d11;
+  --color-secondary-dark-13: #100809;
+  --color-secondary-light-1: #f9e8ee;
+  --color-secondary-light-2: #fceff4;
+  --color-secondary-light-3: #fdf5f8;
+  --color-secondary-light-4: #fffafd;
+  --color-secondary-alpha-10: #f3dbe319;
+  --color-secondary-alpha-20: #f3dbe333;
+  --color-secondary-alpha-30: #f3dbe34b;
+  --color-secondary-alpha-40: #f3dbe366;
+  --color-secondary-alpha-50: #f3dbe380;
+  --color-secondary-alpha-60: #f3dbe399;
+  --color-secondary-alpha-70: #f3dbe3b3;
+  --color-secondary-alpha-80: #f3dbe3cc;
+  --color-secondary-alpha-90: #f3dbe3e1;
+  --color-secondary-button: var(--color-secondary-dark-4);
+  --color-secondary-hover: var(--color-secondary-dark-5);
+  --color-secondary-active: var(--color-secondary-dark-6);
+
+  /* manter cores de console neutras */
+  --color-console-fg: #f7f8f9;
+  --color-console-fg-subtle: #bdc4cc;
+  --color-console-bg: #171b1e;
+
+  /* manter as demais cores nomeadas, mas mudar pink e ajustes */
+  --color-red: #db2828;
+  --color-orange: #f2711c;
+  --color-yellow: #fbbd08;
+  --color-olive: #b5cc18;
+  --color-green: #21ba45;
+  --color-teal: #00b5ad;
+  --color-blue: #2185d0;
+  --color-violet: #6435c9;
+  --color-purple: #a333c8;
+  --color-pink: #e91e63;
+  --color-brown: #a5673f;
+  --color-black: #1d2328;
+
+  /* light variants */
+  --color-pink-light: #f48fb1;
+
+  /* dark variants */
+  --color-pink-dark-1: #c2185b;
+  --color-pink-dark-2: #ad1457;
+
+  /* badges */
+  --color-pink-badge: #e91e63;
+  --color-pink-badge-bg: #e91e631a;
+  --color-pink-badge-hover-bg: #e91e634d;
+
+  /* ajusta highlights e marcadores */
+  --color-highlight-fg: #ff69b4;
+  --color-highlight-bg: #fff0f5;
+
+  /* ajustes temáticos gerais */
+  --color-accent: var(--color-primary-light-2);
+  --color-small-accent: var(--color-primary-light-6);
+  --color-label-bg: #f8bbd04b;
+  --color-label-hover-bg: #f8bbd0a0;
+  --color-label-active-bg: #f8bbd0ff;
+
+  /* demais elementos visuais mantidos */
+  --color-body: #ffffff;
+  --color-nav-bg: #fdf2f7;
+  --color-box-header: #fff0f5;
+  --color-box-body-highlight: #f8bbd066;
+  --color-nav-hover-bg: var(--color-secondary-light-1);
+  --color-menu: #fff8fb;
+  --color-card: #fff8fb;
+  --color-code-bg: #fff7fb;
+}
+
+
+.home a {
+    color: var(--color-primary) !important; /* link and link hover color on home page, other links use --color-primary */
+}
+
+.home .svg {
+    color: var(--color-primary) !important; /* icons' color on home page */
+}

@@ -1,6 +1,6 @@
 networks:
   gitea:
-    external: false
+    external: true
 
 services:
   server:
